@@ -23,5 +23,8 @@ server.on("stream", (stream, headers) => {
         return router.indexHandler(stream, headers);
     if (headers._pathPoints[0] === "user")
         return router.userHandler(stream, headers);
+    /* TODO */
+    if (headers[":path"] === "/auth")
+        return router.authHandler(stream, headers);
     return router.handler404(stream, headers);
 })
