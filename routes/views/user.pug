@@ -1,0 +1,6 @@
+html
+    head
+        title #{headers[":path"]}
+    body
+        h1 #{JSON.stringify(headers._pathPoints)}
+        p This page was rendered using Pug directly in Node.js.

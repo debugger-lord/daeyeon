@@ -1,0 +1,16 @@
+{
+  "name": "daeyeon_church",
+  "version": "0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Kyrill",
+  "license": "",
+  "type": "commonjs",
+  "dependencies": {
+    "pug": "^3.0.3"
+  }
+}
