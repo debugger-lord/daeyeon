@@ -9,7 +9,7 @@ const server = http2.createSecureServer({
     key: fs.readFileSync(path.join(__dirname, "certificate/localhost-privkey.pem")),
     cert: fs.readFileSync(path.join(__dirname, "certificate/localhost-cert.pem")),
 });
-server.on("error", console.log);
+server.on("error", console.error);
 const PORT = 8000;
 server.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
