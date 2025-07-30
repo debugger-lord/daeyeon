@@ -1,13 +1,13 @@
 doctype html
 html
 	head
-		title Sign in
+		title Sign up
 		meta(name="viewport" content="width=device-width, initial-scale=1")
 		style
 			include ../css/common.css
 			include ../css/sign.css
 	body
-		h1 Authorization
+		h1 Registration
 		form#sign(method="post" action="?method=post")
 			label
 				span Nickname
@@ -15,6 +15,9 @@ html
 			label
 				span Password
 				input(name="password")
-			button(type="submit") Sign in
+			label
+				span Repeat PW
+				input(name="password1")
+			button(type="submit") Sign up
 		script
 			include ../js/sign.js

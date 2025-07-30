@@ -1,0 +1,10 @@
+#sign {
+    display: table;
+    border-spacing: .5rem;
+    > label, > button {
+        display: table-row;
+    }
+    > label > :is(span, input) {
+        display: table-cell;
+    }
+}
