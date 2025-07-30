@@ -12,12 +12,15 @@ html
 			label
 				span Nickname
 				input(name="nickname")
+				span#isFree
 			label
 				span Password
 				input(name="password")
+				span#lengthOk
 			label
 				span Repeat PW
 				input(name="password1")
+				span#doesMatch
 			button(type="submit") Sign up
 		script
 			include ../js/sign.js

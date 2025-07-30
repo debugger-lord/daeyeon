@@ -37,7 +37,7 @@ app.get("/reg", (req, res) => {
         },
     };
     console.log(isOk.yes());
-    res.json(isOk);
+    res.json({...isOk, yes: isOk.yes()});
 
     if (!isOk.yes()) return;
 

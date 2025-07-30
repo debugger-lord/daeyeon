@@ -17,5 +17,8 @@ form.addEventListener("submit", async e => {
     });
     const json = await response.json();
     console.log(json);
-});
 
+    document.getElementById("isFree").innerHTML = json.nickname.isFree ? "free" : "not free";
+    document.getElementById("lengthOk").innerHTML = json.password.lengthOk ? "✅" : "❌";
+    document.getElementById("doesMatch").innerHTML = json.password.doesMatch ? "✅" : "❌";
+});
