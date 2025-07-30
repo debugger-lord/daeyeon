@@ -1,30 +1,23 @@
-const http2 = require("http2");
-const fs = require("fs");
-const path = require("path");
+const path = require('path');
+const fs = require('fs');
 
-const router = require(path.join(__dirname, "routes/router.js"));
+const express = require('express');
+const pug = require('pug');
 
 // app:
-const server = http2.createSecureServer({
-    key: fs.readFileSync(path.join(__dirname, "certificate/localhost-privkey.pem")),
-    cert: fs.readFileSync(path.join(__dirname, "certificate/localhost-cert.pem")),
-});
-server.on("error", console.error);
-const PORT = 8000;
-server.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}`);
-});
 
-server.on("stream", (stream, headers) => {
-    headers._pathPoints = (headers[":path"]).slice(1).split("/");
+const app = express();
+app.listen(8000);
 
-    // router:
-    if (headers[":path"] === "/")
-        return router.indexHandler(stream, headers);
-    if (headers._pathPoints[0] === "user")
-        return router.userHandler(stream, headers);
-    /* TODO */
-    if (headers[":path"] === "/auth")
-        return router.authHandler(stream, headers);
-    return router.handler404(stream, headers);
-})
+app.set("view engine", "pug");
+app.set("views", __dirname + "/routes/views");
+
+app.get("/", (req, res) => {
+    res.render("index");
+});
+app.get("/auth", (req, res) => {
+    res.render("auth");
+});
+app.get("/user/:user", (req, res) => {
+    res.render("user", req.params);
+});

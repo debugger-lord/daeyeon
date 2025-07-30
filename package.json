@@ -11,6 +11,9 @@
   "license": "",
   "type": "commonjs",
   "dependencies": {
+    "express": "^5.1.0",
+    "http2-express": "^1.0.1",
+    "http2-express-bridge": "^1.0.7",
     "pug": "^3.0.3"
   }
 }
